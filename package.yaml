@@ -25,7 +25,11 @@ dependencies:
 - wreq
 - lens
 - lens-aeson
-
+- time
+- http-client
+- http-types
+- text
+- bytestring
 library:
   source-dirs: src
 
