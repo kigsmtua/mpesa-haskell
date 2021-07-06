@@ -4,16 +4,16 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 952698a4e9a3cf8ca325adf9c6fe289eb8edaa055a03746a77d715bcbc66da51
+-- hash: 36679835f2ee295ad58f7eca622a1ccc7f50511f8a650f2810fb5f753c0cebe0
 
 name:           mpesa-haskell
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/mpesa-haskell#readme>
-homepage:       https://github.com/githubuser/mpesa-haskell#readme
-bug-reports:    https://github.com/githubuser/mpesa-haskell/issues
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2021 Author name here
+description:    Please see the README on GitHub at <https://github.com/kigsmtua/mpesa-haskell#readme>
+homepage:       https://github.com/kigsmtua/mpesa-haskell#readme
+bug-reports:    https://github.com/kigsmtua/mpesa-haskell/issues
+author:         John Kiragu
+maintainer:     mutuakiragu@gmail.com
+copyright:      2021 John Kiragu
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
@@ -23,29 +23,23 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/mpesa-haskell
+  location: https://github.com/kigsmtua/mpesa-haskell
 
 library
   exposed-modules:
-      Lib
+      Network.Payments.Mpesa
+      Network.Payments.Mpesa.Auth
+      Network.Payments.Mpesa.Environment
   other-modules:
       Paths_mpesa_haskell
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
-  default-language: Haskell2010
-
-executable mpesa-haskell-exe
-  main-is: Main.hs
-  other-modules:
-      Paths_mpesa_haskell
-  hs-source-dirs:
-      app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
-  build-depends:
-      base >=4.7 && <5
-    , mpesa-haskell
+      aeson
+    , base >=4.7 && <5
+    , lens
+    , lens-aeson
+    , wreq
   default-language: Haskell2010
 
 test-suite mpesa-haskell-test
@@ -57,6 +51,10 @@ test-suite mpesa-haskell-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , lens
+    , lens-aeson
     , mpesa-haskell
+    , wreq
   default-language: Haskell2010
