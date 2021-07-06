@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 650b8bfa1c0aa82246d6ea76db63e25a4db64627c17a5cb1e12e10e202bedcf7
+-- hash: 6b6657778d041798085079ca5595b956d77365f8cfb3b398214b639051d7cd42
 
 name:           mpesa-haskell
 version:        0.1.0.0
@@ -42,6 +42,27 @@ library
     , http-types
     , lens
     , lens-aeson
+    , text
+    , time
+    , wreq
+  default-language: Haskell2010
+
+executable mpesa-haskell-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_mpesa_haskell
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , http-client
+    , http-types
+    , lens
+    , lens-aeson
+    , mpesa-haskell
     , text
     , time
     , wreq
