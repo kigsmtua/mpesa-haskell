@@ -4,16 +4,16 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 952698a4e9a3cf8ca325adf9c6fe289eb8edaa055a03746a77d715bcbc66da51
+-- hash: 6b6657778d041798085079ca5595b956d77365f8cfb3b398214b639051d7cd42
 
 name:           mpesa-haskell
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/mpesa-haskell#readme>
-homepage:       https://github.com/githubuser/mpesa-haskell#readme
-bug-reports:    https://github.com/githubuser/mpesa-haskell/issues
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2021 Author name here
+description:    Please see the README on GitHub at <https://github.com/kigsmtua/mpesa-haskell#readme>
+homepage:       https://github.com/kigsmtua/mpesa-haskell#readme
+bug-reports:    https://github.com/kigsmtua/mpesa-haskell/issues
+author:         John Kiragu
+maintainer:     mutuakiragu@gmail.com
+copyright:      2021 John Kiragu
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
@@ -23,17 +23,28 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/mpesa-haskell
+  location: https://github.com/kigsmtua/mpesa-haskell
 
 library
   exposed-modules:
-      Lib
+      Network.Payments.Mpesa
+      Network.Payments.Mpesa.Auth
+      Network.Payments.Mpesa.Environment
   other-modules:
       Paths_mpesa_haskell
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , http-client
+    , http-types
+    , lens
+    , lens-aeson
+    , text
+    , time
+    , wreq
   default-language: Haskell2010
 
 executable mpesa-haskell-exe
@@ -44,8 +55,17 @@ executable mpesa-haskell-exe
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , http-client
+    , http-types
+    , lens
+    , lens-aeson
     , mpesa-haskell
+    , text
+    , time
+    , wreq
   default-language: Haskell2010
 
 test-suite mpesa-haskell-test
@@ -57,6 +77,15 @@ test-suite mpesa-haskell-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , http-client
+    , http-types
+    , lens
+    , lens-aeson
     , mpesa-haskell
+    , text
+    , time
+    , wreq
   default-language: Haskell2010
